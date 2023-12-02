@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<style>
+    #room_create_form_div {
+        display: none;
+    }
+    
+    #room_adjust_form_div {
+        display: none;
+    }
+    
+    #room_delete_form_div {
+        display: none;
+    }
+</style>
+
+<body>
+    <!--Navigation Bar-->
+    <header>
+        <!--For Navigation Bar-->
+        <h2 class="logo">Welcome to BookBros! (Staff)</h2>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.uow.edu.au">
+                <img src="https://uowplaybook.s3-ap-southeast-2.amazonaws.com/logo/logo-shorthand-vertical-negative.png" style="width:150px;height:130px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="margin-left:100px;">
+                    <li class="nav-item">
+                        <input type="button" value="Create A Room" id="show_room_creation_page" class="nav-link fs-3 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <input type="button" value="Room Adjustments" id="show_room_adjustment_page" class="nav-link fs-3 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <input type="button" value="Room Deletion" id="show_room_delete_page" class="nav-link fs-3 text-primary m-5">
+                    </li>
+
+                </ul>
+            </div>
+            <a class="navbar-brand" href="https://www.uow.edu.au">
+                <img src="https://uowplaybook.s3-ap-southeast-2.amazonaws.com/logo/logo-shorthand-vertical-negative.png" style="width:150px;height:130px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!--Overall Details-->
+    <div id="overall_details">
+        <div style="height:110px;" class="bg-primary">
+            <h1 style="margin-left:630px;" class="p-4">Overall details</h1>
+        </div>
+        <table class="table table-primary table-striped-columns table-hover" id="room_overview_table">
+            <thead>
+                <tr>
+                    <th scope="col">Number</th>
+                    <th scope="col">Room ID</th>
+                    <th scope="col">Price per session($)</th>
+                    <th scope="col">Promotion Code</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Occupied By</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Launched</th>
+                    <th scope="col">Approved By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="1A">
+                    <th scope="row" id="1A_no">1</th>
+                    <td>1A</td>
+                    <td>2</td>
+                    <td>16AHJ2</td>
+                    <td>15</td>
+                    <td>2023-05-13</td>
+                    <td>12PM-3PM</td>
+                    <td>David</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Admin Martin</td>
+                </tr>
+                <tr id="3D">
+                    <th scope="row">2</th>
+                    <td>3D</td>
+                    <td>3</td>
+                    <td>45IHO5</td>
+                    <td>20</td>
+                    <td>2023-05-12</td>
+                    <td>2PM-3PM</td>
+                    <td>_</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Admin Villa</td>
+                </tr>
+                <tr id="3G">
+                    <th scope="row">3</th>
+                    <td>3G</td>
+                    <td>6</td>
+                    <td>39ZTU8</td>
+                    <td>40</td>
+                    <td>2023-05-17</td>
+                    <td>1PM-4PM</td>
+                    <td>_</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Admin Ashley</td>
+                </tr>
+
+                <tr id="5R">
+                    <th scope="row">4</th>
+                    <td>5R</td>
+                    <td>20</td>
+                    <td>45UIOP</td>
+                    <td>35</td>
+                    <td>2023-05-22</td>
+                    <td>9AM-3PM</td>
+                    <td>_</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Admin Eminem</td>
+                </tr>
+
+                <tr id="5E">
+                    <th scope="row">5</th>
+                    <td>5E</td>
+                    <td>7</td>
+                    <td>18ZZI7</td>
+                    <td>35</td>
+                    <td>2023-05-18</td>
+                    <td>11AM-2PM</td>
+                    <td>-</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>-</td>
+                </tr>
+                <tr id="4D">
+                    <th scope="row">6</th>
+                    <td>4D</td>
+                    <td>2</td>
+                    <td>60RVZ0</td>
+                    <td>20</td>
+                    <td>2023-05-12</td>
+                    <td>1PM-2PM</td>
+                    <td>-</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Pending Approval</td>
+                </tr>
+                <tr id="7T">
+                    <th scope="row">7</th>
+                    <td>7T</td>
+                    <td>4</td>
+                    <td>80FTA9</td>
+                    <td>30</td>
+                    <td>2023-05-23</td>
+                    <td>4PM-7PM</td>
+                    <td>-</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Pending Approval</td>
+                </tr>
+
+                <tr id="9Z">
+                    <th scope="row">8</th>
+                    <td>9Z</td>
+                    <td>8</td>
+                    <td>90OPX9</td>
+                    <td>10</td>
+                    <td>2023-05-29</td>
+                    <td>8AM-10AM</td>
+                    <td>-</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Pending Approval</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <div style="width:700px;margin-left: 400px;">
+        <!-- Room cration form-->
+        <div style="width: 500px;" id="room_create_form_div" class="bigbox">
+            <span onclick="document.getElementById('room_create_form_div').style.display='none'" class="close" title="Close Modal">
+                x
+            </span>
+            <form id="room_creation_form">
+                <div>
+                    <h2 style="margin-left: 120px;">Room Creation Form</h2>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Number</span>
+                    <input type="text" id="room_creation_no" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Room ID</span>
+                    <input type="text" id="room_creation_id" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Price Per Session</span>
+                    <input type="number" id="room_creation_price" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Promotion Code</span>
+                    <input type="text" id="room_creation_promotion" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Capacity</span>
+                    <input type="number" id="room_creation_capacity" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Date</span>
+                    <input type="date" id="room_creation_date" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:150px;">Time</span>
+                    <input type="text" id="room_creation_time" class="form-control">
+                </div>
+
+
+
+
+            </form>
+            <div class="input-group">
+                <span class="input-group-text" style="width: 700px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Confirm Room Creation?</span>
+                <input type="button" class="btn btn-outline-secondary" value="Yes" style="width: 700px;" id="room_creation_yes" onclick="addData_room_creation()">
+                <input type="button" class="btn btn-outline-secondary" value="No" style="width: 700px;" id="room_creation_no">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text" style="width: 700px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp Confirm Room Launch? </span>
+                <input type="button" class="btn btn-outline-secondary" value="Yes" style="width: 700px;" id="room_launch_yes" onclick="room_launch_yes()">
+                <input type="button" class="btn btn-outline-secondary" value="No" style="width: 700px;" id="room_launch_no" onclick="room_launch_no()">
+            </div>
+        </div>
+
+        <!--Room Adjustment form-->
+
+        <div style="width: 500px;" id="room_adjust_form_div" class="bigbox">
+            <span onclick="document.getElementById('room_adjust_form_div').style.display='none'" class="close" title="Close Modal">
+                X
+            </span>
+            <form id="room_adjust_form">
+                <div>
+                    <h2 style="margin-left: 80px;">Room Adjustment Form</h2>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">Room ID</span>
+                    <input type="text" id="room_adjustment_id" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">New Room ID</span>
+                    <input type="text" id="room_adjustment_new_id" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">New Price Per Session</span>
+                    <input type="number" id="room_adjustment_price" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">New Promotion Code</span>
+                    <input type="text" id="room_adjustment_promotion" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">New Capacity</span>
+                    <input type="number" id="room_adjustment_capacity" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">New Date</span>
+                    <input type="date" id="room_adjustment_date" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">New Time</span>
+                    <input type="text" id="room_adjustment_time" class="form-control">
+                </div>
+
+            </form>
+            <div class="input-group">
+                <span class="input-group-text" style="width: 700px"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Do you confirm
+                    those changes?</span>
+                <input type="button" class="btn btn-outline-secondary" value="Yes" style="width: 700px;" id="room_adjustment_yes" onclick="changes_yes()">
+                <input type="button" class="btn btn-outline-secondary" value="No" style="width: 700px;" id="room_adjustment_no" onclick="changes_no()">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text" style="width: 700px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Are you sure to relaunch /
+                    launch the room?</span>
+                <input type="button" class="btn btn-outline-secondary" value="Yes" style="width: 700px;" id="room_launch_yes" onclick="room_relaunch_yes()">
+                <input type="button" class="btn btn-outline-secondary" value="No" style="width: 700px;" id="room_launch_no" onclick="room_relaunch_no()">
+            </div>
+
+        </div>
+
+        <!--Room deletion form-->
+
+        <div style="width: 500px;" id="room_delete_form_div" class="bigbox">
+            <span onclick="document.getElementById('room_delete_form_div').style.display='none'" class="close" title="Close Modal">X
+            </span>
+            <form id="room_deletion_form">
+                <div>
+                    <h2 style="margin-left: 120px;">Room Deletion Form</h2>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width:200px;">Provide the room ID <br>you wish to delete</span>
+                    <input type="text" id="room_deletion_room_id" class="form-control">
+                </div>
+            </form>
+            <div class="input-group">
+                <span class="input-group-text" style="width: 700px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;Confirm Deletion of the Room?</span>
+                <input type="button" class="btn btn-outline-secondary" value="Yes" style="width: 700px;" id="room_delete_yes" onclick="room_delete_yes()">
+                <input type="button" class="btn btn-outline-secondary" value="No" style="width: 700px;" id="room_delte_no" onclick="room_delete_no()">
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div style="height:55px;" class="bg-primary"></div>
+    <button class="btn btn-secondary m-3 mb-5">
+        <a
+            href="../Bookbrosuser_login.html"
+            class="text-decoration-none text-muted"
+        >
+            Log out
+        </a>
+    </button>
+
+    <script>
+        function addData_room_creation() {
+
+            var room_creation_no = document.getElementById("room_creation_no").value;
+            var room_creation_id = document.getElementById("room_creation_id").value;
+            var room_creation_price = document.getElementById("room_creation_price").value;
+            var room_creation_promotion = document.getElementById("room_creation_promotion").value;
+            var room_creation_capacity = document.getElementById("room_creation_capacity").value;
+            var room_creation_date = document.getElementById("room_creation_date").value;
+            var room_creation_time = document.getElementById("room_creation_time").value;
+            var room_launch_yes = "Yes";
+            var room_launch_no = "No";
+
+            var room_creation_table = document.getElementById("room_overview_table");
+
+            var row = room_creation_table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
+            var cell11 = row.insertCell(10);
+
+
+            cell1.innerHTML = room_creation_no;
+            cell2.innerHTML = room_creation_id;
+            cell3.innerHTML = room_creation_price;
+            cell4.innerHTML = room_creation_promotion;
+            cell5.innerHTML = room_creation_capacity;
+            cell6.innerHTML = room_creation_date;
+            cell7.innerHTML = room_creation_time;
+            cell8.innerHTML = "_";
+            cell9.innerHTML = "Yes";
+            cell10.innerHTML = "_";
+            cell11.innerHTML = "_"
+        }
+
+        function room_launch_yes() {
+            var room_creation_no = document.getElementById("room_creation_no").value;
+            var room_creation_id = document.getElementById("room_creation_id").value;
+            var room_creation_price = document.getElementById("room_creation_price").value;
+            var room_creation_promotion = document.getElementById("room_creation_promotion").value;
+            var room_creation_capacity = document.getElementById("room_creation_capacity").value;
+            var room_creation_date = document.getElementById("room_creation_date").value;
+            var room_creation_time = document.getElementById("room_creation_time").value;
+            var room_launch_yes = "Yes";
+            var room_launch_no = "No";
+
+            var room_creation_table = document.getElementById("room_overview_table");
+
+            var row = room_creation_table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
+            var cell11 = row.insertCell(10);
+
+
+            cell1.innerHTML = room_creation_no;
+            cell2.innerHTML = room_creation_id;
+            cell3.innerHTML = room_creation_price;
+            cell4.innerHTML = room_creation_promotion;
+            cell5.innerHTML = room_creation_capacity;
+            cell6.innerHTML = room_creation_date;
+            cell7.innerHTML = room_creation_time;
+            cell8.innerHTML = "_";
+            cell9.innerHTML = "Yes";
+            cell10.innerHTML = "Yes";
+            cell11.innerHTML = "Pending Approval";
+
+        }
+
+        function room_launch_no() {
+            var room_creation_no = document.getElementById("room_creation_no").value;
+            var room_creation_id = document.getElementById("room_creation_id").value;
+            var room_creation_price = document.getElementById("room_creation_price").value;
+            var room_creation_promotion = document.getElementById("room_creation_promotion").value;
+            var room_creation_capacity = document.getElementById("room_creation_capacity").value;
+            var room_creation_date = document.getElementById("room_creation_date").value;
+            var room_creation_time = document.getElementById("room_creation_time").value;
+            var room_launch_yes = "Yes";
+            var room_launch_no = "No";
+
+            var room_creation_table = document.getElementById("room_overview_table");
+
+            var row = room_creation_table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
+            var cell11 = row.insertCell(10);
+
+
+            cell1.innerHTML = room_creation_no;
+            cell2.innerHTML = room_creation_id;
+            cell3.innerHTML = room_creation_price;
+            cell4.innerHTML = room_creation_promotion;
+            cell5.innerHTML = room_creation_capacity;
+            cell6.innerHTML = room_creation_date;
+            cell7.innerHTML = room_creation_time;
+            cell8.innerHTML = "_";
+            cell9.innerHTML = "Yes";
+            cell10.innerHTML = "No";
+            cell11.innerHTML = "_";
+
+        }
+
+        function changes_yes() {
+
+
+            var change_room_id = document.getElementById("room_adjustment_id").value;
+
+
+            var table = document.getElementById("room_overview_table");
+            for (var i = 0; i < table.rows.length; i++) {
+                var row = table.rows[i];
+                var cell = row.cells[1];
+                if (cell.innerHTML.toLowerCase() === change_room_id.toLowerCase()) {
+
+                    var newRoomID = document.getElementById("room_adjustment_new_id").value;
+                    var newRoomPrice = document.getElementById("room_adjustment_price").value;
+                    var newRoomPromotioncode = document.getElementById("room_adjustment_promotion").value;
+                    var newRoomCapacity = document.getElementById("room_adjustment_capacity").value;
+                    var newRoomDate = document.getElementById("room_adjustment_date").value;
+                    var newRoomTime = document.getElementById("room_adjustment_time").value;
+
+                    row.cells[1].innerHTML = newRoomID;
+                    row.cells[2].innerHTML = newRoomPrice;
+                    row.cells[3].innerHTML = newRoomPromotioncode;
+                    row.cells[4].innerHTML = newRoomCapacity;
+                    row.cells[5].innerHTML = newRoomDate;
+                    row.cells[6].innerHTML = newRoomTime;
+
+
+                    break;
+                }
+            }
+
+        }
+
+        function room_relaunch_yes() {
+            var change_room_id = document.getElementById("room_adjustment_id").value;
+
+
+            var table = document.getElementById("room_overview_table");
+            for (var i = 0; i < table.rows.length; i++) {
+                var row = table.rows[i];
+                var cell = row.cells[1];
+                if (cell.innerHTML.toLowerCase() === change_room_id.toLowerCase()) {
+
+                    var newRoomID = document.getElementById("room_adjustment_new_id").value;
+                    var newRoomPrice = document.getElementById("room_adjustment_price").value;
+                    var newRoomPromotioncode = document.getElementById("room_adjustment_promotion").value;
+                    var newRoomCapacity = document.getElementById("room_adjustment_capacity").value;
+                    var newRoomDate = document.getElementById("room_adjustment_date").value;
+                    var newRoomTime = document.getElementById("room_adjustment_time").value;
+
+                    row.cells[1].innerHTML = newRoomID;
+                    row.cells[2].innerHTML = newRoomPrice;
+                    row.cells[3].innerHTML = newRoomPromotioncode;
+                    row.cells[4].innerHTML = newRoomCapacity;
+                    row.cells[5].innerHTML = newRoomDate;
+                    row.cells[6].innerHTML = newRoomTime;
+                    row.cells[7].innerHTML = "_";
+                    row.cells[8].innerHTML = "Yes";
+                    row.cells[9].innerHTML = "Yes";
+                    row.cells[10].innerHTML = "Pending Approval";
+
+
+                    break;
+                }
+            }
+
+
+        }
+
+
+        function room_relaunch_no() {
+            var change_room_id = document.getElementById("room_adjustment_id").value;
+
+
+            var table = document.getElementById("room_overview_table");
+            for (var i = 0; i < table.rows.length; i++) {
+                var row = table.rows[i];
+                var cell = row.cells[1];
+                if (cell.innerHTML.toLowerCase() === change_room_id.toLowerCase()) {
+
+                    var newRoomID = document.getElementById("room_adjustment_new_id").value;
+                    var newRoomPrice = document.getElementById("room_adjustment_price").value;
+                    var newRoomPromotioncode = document.getElementById("room_adjustment_promotion").value;
+                    var newRoomCapacity = document.getElementById("room_adjustment_capacity").value;
+                    var newRoomDate = document.getElementById("room_adjustment_date").value;
+                    var newRoomTime = document.getElementById("room_adjustment_time").value;
+
+                    row.cells[1].innerHTML = newRoomID;
+                    row.cells[2].innerHTML = newRoomPrice;
+                    row.cells[3].innerHTML = newRoomPromotioncode;
+                    row.cells[4].innerHTML = newRoomCapacity;
+                    row.cells[5].innerHTML = newRoomDate;
+                    row.cells[6].innerHTML = newRoomTime;
+                    row.cells[7].innerHTML = "_";
+                    row.cells[8].innerHTML = "Yes";
+                    row.cells[9].innerHTML = "No";
+                    row.cells[10].innerHTML = "_";
+
+
+                    break;
+                }
+            }
+        }
+
+        function removeRow(rowId) {
+            var table = document.getElementById("room_overview_table");
+            var row = document.getElementById(rowId);
+            table.deleteRow(row.rowIndex);
+        }
+
+
+        function room_delete_yes() {
+            var delete_room_id = document.getElementById("room_deletion_room_id").value;
+
+            var table = document.getElementById("room_overview_table");
+
+
+
+            for (var i = 0; i < table.rows.length; i++) {
+                var row = table.rows[i];
+                var cell = row.cells[1];
+
+
+                if (cell.innerHTML.toLowerCase() === delete_room_id.toLowerCase()) {
+
+                    removeRow(delete_room_id)
+
+                    break;
+                }
+            }
+
+        }
+
+        var form_create_js = document.getElementById("room_create_form_div");
+        var button_room_creation_js = document.getElementById("show_room_creation_page");
+
+        button_room_creation_js.addEventListener("click", function() {
+            if (form_create_js.style.display === "none") {
+                form_create_js.style.display = "block";
+            } else {
+                form_create_js.style.display = "none";
+            }
+        });
+
+
+        var form_adjustment_js = document.getElementById("room_adjust_form_div");
+        var button_room_adjustment_js = document.getElementById("show_room_adjustment_page");
+
+        button_room_adjustment_js.addEventListener("click", function() {
+            if (form_adjustment_js.style.display === "none") {
+                form_adjustment_js.style.display = "block";
+            } else {
+                form_adjustment_js.style.display = "none";
+            }
+        });
+
+        var form_delete_js = document.getElementById("room_delete_form_div");
+        var button_room_delete_js = document.getElementById("show_room_delete_page");
+
+        button_room_delete_js.addEventListener("click", function() {
+            if (form_delete_js.style.display === "none") {
+                form_delete_js.style.display = "block";
+            } else {
+                form_delete_js.style.display = "none";
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

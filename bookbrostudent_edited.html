@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Interface</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<style>
+    #book_room_form_div {
+        display: none;
+    }
+    
+    #booking_modify_form_div {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <header>
+        <!--For Navigation Bar-->
+        <h2 class="logo">Welcome to BookBros! (Student)</h2>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.uow.edu.au">
+                <img src="https://uowplaybook.s3-ap-southeast-2.amazonaws.com/logo/logo-shorthand-vertical-negative.png" style="width:150px;height:130px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav" style="margin-left:100px;">
+                    <li class="nav-item">
+                        <input type="button" value="Make A Booking" id="show_student_booking_page" class="nav-link fs-5 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <input type="button" value="Modify A Booking" id="show__student_modify_booking_page" class="nav-link fs-5 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <a href="#room_cancellation_title" class="nav-link fs-5 text-primary m-5">Cancel A Booking</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <a class="navbar-brand" href="https://www.uow.edu.au">
+                <img src="https://uowplaybook.s3-ap-southeast-2.amazonaws.com/logo/logo-shorthand-vertical-negative.png" style="width:150px;height:130px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Lists of Rooms Available-->
+
+
+    <div id="available_rooms_details">
+        <div style="height:110px;" class="bg-primary">
+            <h1 style="margin-left:600px;" class="p-4">List Of Rooms Available</h1>
+        </div>
+        <table class="table table-primary table-striped-columns table-hover" id="room_available_table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Room ID</th>
+                    <th scope="col">Price per session($)</th>
+                    <th scope="col">Capacity</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="3D">
+                    <th scope="row" id="3D_no">3D</th>
+                    <td>3</td>
+                    <td>10</td>
+                    <td>2023-05-12</td>
+                    <td>2PM</td>
+                </tr>
+                <tr id="3G">
+                    <th scope="row">3G</th>
+                    <td>6</td>
+                    <td>10</td>
+                    <td>2023-05-17</td>
+                    <td>1PM</td>
+                </tr>
+                <tr id="5R">
+                    <th scope="row">5R</th>
+                    <td>8</td>
+                    <td>15</td>
+                    <td>2023-05-22</td>
+                    <td>9AM</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+    <!--Main Div-->
+    <div class="d-flex">
+
+        <!--Student Booking Details Form-->
+        <div style="width:600px;height:700px;" class="border bigbox marginauto">
+            <h2 style="margin-left: 20px;margin-top: 20px;">Student's Room Booking Detail</h2>
+
+            <div style="width: 590px;height: 50px;">
+                <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">Name &nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                </label>
+                <label id="book_student_name" class="mx-5" style="color:#FFFFFF">Thet Naung Soe</label>
+            </div>
+
+            <div style="width: 590px;height: 50px;">
+                <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">UOW Mail &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                </label>
+                <label id="book_student_uowmail" class="mx-5" style="color:#FFFFFF">tns983@uowmail.edu.au</label>
+            </div>
+
+            <div style="width: 590px;height: 50px;">
+                <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">UOW ID &nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                </label>
+                <label id="book_student_uowid" class="mx-5" style="color:#FFFFFF">7673528</label>
+            </div>
+
+            <table class="table table-primary table-striped-columns table-hover" id="student_booking_detail_table">
+                <thead>
+                    <tr>
+
+                        <th scope="col">List of Booked Room ID</th>
+                        <th scope="col">Price Per Session($)</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Cost($)</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="bg-primary" style="height: 40px;margin-top:70px;"></div>
+
+            <div>
+                <h5 style="margin-left:190px;" id="room_cancellation_title">Booking Cancellation</h5>
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" style="width: 200px;">Room ID</span>
+                <input type="text" id="get_room_id_to_cancel" class="form-control">
+            </div>
+            <div class="input-group">
+                <label style="margin-left:120px;" class="fw-bold fs-5">Confirm cancellation of the room booking?</label>
+                <input type="button" class="btn btn-outline-secondary" value="Yes" style="width: 700px;" id="cancel_the_room_yes" onclick="cancel_the_room_yes()">
+                <input type="button" class="btn btn-outline-secondary" value="No" style="width: 700px;" id="cancel_the_room_yes" onclick="cancel_the_room_No()">
+            </div>
+
+
+
+
+
+        </div>
+        <div>
+            <div>
+                <!--Room Booking form-->
+                <div style="width: 500px;" id="book_room_form_div" class="bigbox">
+                    <span onclick="document.getElementById('book_room_form_div').style.display='none'" class="close" title="Close Modal">
+                        x
+                    </span>
+                    <div>
+                        <h2 class=" fs-3 " style="margin-left: 110px;">Booking Room Form</h2>
+                    </div>
+
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-text" style="width: 200px;">
+                                <p
+                                    style="margin-left:37px;"
+                                    class="fw-bold"
+                                >Room ID</p>
+                            </span>
+                            <input type="text" id="chosen_room_id" class="form-control">
+                        </div>
+
+                        <div style="width: 490px;height: 50px;">
+                            <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">Price Per Session($):</label>
+                            <label id="price_per_session_chosen" class="mx-5"></label>
+                        </div>
+
+                        <div style="width: 490px;height: 50px;">
+                            <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">Capacity &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+                            <label id="capacity_chosen" class="mx-5"></label>
+                        </div>
+
+                        <div style="width: 490px;height: 50px;">
+                            <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">Date &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            </label>
+                            <label id="date_chosen"></label>
+                        </div>
+
+                        <div style="width: 490px;height: 50px;">
+                            <label class="fw-bold" style="margin-left: 50px;margin-top:10px;">Time &nbsp; &nbsp; &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                            </label>
+                            <label id="time_chosen"></label>
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-text" style="width: 200px;">
+                                <p
+                                    style="margin-left:37px;"
+                                    class="fw-bold"
+                                >Duration</p>
+                            </span>
+                            <input type="number" id="chosen_room_duration" class="form-control">
+                            <span class="input-group-text" style="width: 200px;">Sessions</span>
+                        </div>
+
+
+                    </form>
+                    <div class="input-group">
+                        <input type="button" class="btn btn-outline-secondary" value="Book" style="width: 700px;" id="Book_room" onclick="book_the_room();book_show_to_details()">
+                    </div>
+
+
+                </div>
+
+                <!--Room Modification Form-->
+                <div style="width: 500px; " id="booking_modify_form_div" class="bigbox ">
+                    <span onclick="document.getElementById('booking_modify_form_div').style.display='none' " class="close " title="Close Modal ">
+                        x
+                    </span>
+                    <div>
+                        <h2 class=" fs-3 " style="margin-left:100px; ">Booking Modification Form</h2>
+                    </div>
+
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-text" style="width: 200px;">
+                                <p
+                                    style="margin-left:37px;"
+                                    class="fw-bold"
+                                >Room ID</p>
+                            </span>
+                            <input type="text" id="modify_book_room_id" class="form-control">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-text" style="width: 200px;">
+                                <p
+                                    style="margin-left:37px;"
+                                    class="fw-bold"
+                                >Duration</p>
+                            </span>
+                            <input type="number" id="modify_book_room_duration" class="form-control">
+                            <span class="input-group-text" style="width: 200px;">Sessions</span>
+                        </div>
+                    </form>
+
+                    <div class="input-group ">
+
+                        <input type="button " class="btn btn-outline-secondary " value="Confirm The Modification " style="width: 700px; " onclick="room_modification() ">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <button class="btn btn-secondary m-3 mb-5">
+        <a
+            href="../Bookbrosuser_login.html"
+            class="text-decoration-none text-muted"
+        >
+            Log out
+        </a>
+    </button>
+
+
+
+
+
+</body>
+<script>
+    function book_the_room() {
+        var get_book_room_id = document.getElementById("chosen_room_id").value;
+
+        if (get_book_room_id === "3D") {
+            document.getElementById("price_per_session_chosen").innerHTML = 3;
+            document.getElementById("capacity_chosen").innerHTML = 10;
+            document.getElementById("date_chosen").innerHTML = "2023-05-12";
+            document.getElementById("time_chosen").innerHTML = "2PM";
+        }
+
+        if (get_book_room_id === "3G") {
+            document.getElementById("price_per_session_chosen").innerHTML = 6;
+            document.getElementById("capacity_chosen").innerHTML = 10;
+            document.getElementById("date_chosen").innerHTML = "2023-05-17";
+            document.getElementById("time_chosen").innerHTML = "1PM";
+        }
+
+        if (get_book_room_id === "5R") {
+            document.getElementById("price_per_session_chosen").innerHTML = 8;
+            document.getElementById("capacity_chosen").innerHTML = 15;
+            document.getElementById("date_chosen").innerHTML = "2023-05-22";
+            document.getElementById("time_chosen").innerHTML = "9AM";
+        }
+    }
+
+
+    function book_show_to_details() {
+        var room_show_details_id = document.getElementById("chosen_room_id").value;
+        var room_show_duration_get = document.getElementById("chosen_room_duration").value;
+
+        var room_show_details_table = document.getElementById("student_booking_detail_table");
+
+        var row = room_show_details_table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+
+        if (room_show_details_id === "3D") {
+            cell1.innerHTML = room_show_details_id;
+            cell2.innerHTML = 3;
+            cell3.innerHTML = room_show_duration_get;
+            cell4.innerHTML = room_show_duration_get * 3;
+        }
+
+        if (room_show_details_id === "3G") {
+            cell1.innerHTML = room_show_details_id;
+            cell2.innerHTML = 6;
+            cell3.innerHTML = room_show_duration_get;
+            cell4.innerHTML = room_show_duration_get * 6;
+        }
+
+        if (room_show_details_id === "5R") {
+            cell1.innerHTML = room_show_details_id;
+            cell2.innerHTML = 8;
+            cell3.innerHTML = room_show_duration_get;
+            cell4.innerHTML = room_show_duration_get * 8;
+        }
+
+    }
+
+    function room_modification() {
+        var room_modi_get = document.getElementById("modify_book_room_id").value;
+        var room_duration_modi_get = document.getElementById("modify_book_room_duration").value;
+
+        var table = document.getElementById("student_booking_detail_table");
+
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var cell = row.cells[0];
+            if (cell.innerHTML.toLowerCase() === room_modi_get.toLowerCase()) {
+
+                if (room_modi_get.toLowerCase() === "5r") {
+                    row.cells[0].innerHTML = room_modi_get;
+                    row.cells[1].innerHTML = 8;
+                    row.cells[2].innerHTML = room_duration_modi_get;
+                    row.cells[3].innerHTML = 8 * room_duration_modi_get;
+
+                }
+
+                if (room_modi_get.toLowerCase() === "3g") {
+                    row.cells[0].innerHTML = room_modi_get;
+                    row.cells[1].innerHTML = 6;
+                    row.cells[2].innerHTML = room_duration_modi_get;
+                    row.cells[3].innerHTML = 6 * room_duration_modi_get;
+
+                }
+
+                if (room_modi_get.toLowerCase() === "3d") {
+                    row.cells[0].innerHTML = room_modi_get;
+                    row.cells[1].innerHTML = 3;
+                    row.cells[2].innerHTML = room_duration_modi_get;
+                    row.cells[3].innerHTML = 3 * room_duration_modi_get;
+
+                }
+            }
+
+
+        }
+    }
+
+    function cancel_the_room_yes() {
+        var get_the_room_id_for_cancel = document.getElementById("get_room_id_to_cancel").value;
+        var table = document.getElementById("student_booking_detail_table");
+
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var cell = row.cells[0];
+            if (cell.innerHTML.toLowerCase() === get_the_room_id_for_cancel.toLowerCase()) {
+
+                row.cells[0].innerHTML = " ";
+                row.cells[1].innerHTML = " ";
+                row.cells[2].innerHTML = " ";
+                row.cells[3].innerHTML = " ";
+            }
+
+
+        }
+    }
+
+    var room_book_form_show_js = document.getElementById("book_room_form_div");
+    var button_room_book_form_show_js = document.getElementById("show_student_booking_page");
+
+    button_room_book_form_show_js.addEventListener("click", function() {
+        if (room_book_form_show_js.style.display === "none") {
+            room_book_form_show_js.style.display = "block";
+        } else {
+            room_book_form_show_js.style.display = "none";
+        }
+    });
+
+    var room_book_modify_form_show_js = document.getElementById("booking_modify_form_div");
+    var button_room_modify_book_form_show_js = document.getElementById("show__student_modify_booking_page");
+
+    button_room_modify_book_form_show_js.addEventListener("click", function() {
+        if (room_book_modify_form_show_js.style.display === "none") {
+            room_book_modify_form_show_js.style.display = "block";
+        } else {
+            room_book_modify_form_show_js.style.display = "none";
+        }
+    });
+</script>
+
+</html>

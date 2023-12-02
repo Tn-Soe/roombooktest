@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="detail.css">
+</head>
+<style>
+    #account_create_form_div {
+        display: none;
+    }
+    
+    #account_management_form_div {
+        display: none;
+    }
+    
+    #account_checker_form_div {
+        display: none;
+    }
+    
+    #system_administration_form_div {
+        display: none;
+    }
+</style>
+
+<body>
+
+    <header>
+        <!--For Navigation Bar-->
+        <h2 class="logo">Welcome to BookBros! (Admin)</h2>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.uow.edu.au">
+                <img src="https://uowplaybook.s3-ap-southeast-2.amazonaws.com/logo/logo-shorthand-vertical-negative.png" style="width:100px;height:130px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <input type="button" value="Account Creation" id="show_account_creation_page" class="nav-link fs-5 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <input type="button" value="Account Management" id="show__account_managing_page" class="nav-link fs-5 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <input type="button" value="View Activity History" id="show_view_history_page" class="nav-link fs-5 text-primary m-5">
+                    </li>
+                    <li class="nav-item">
+                        <input type="button" value="System Administraion" id="show_system_administration_page" class="nav-link fs-5 text-primary m-5">
+                    </li>
+
+                </ul>
+            </div>
+
+            <a class="navbar-brand" href="https://www.uow.edu.au">
+                <img src="https://uowplaybook.s3-ap-southeast-2.amazonaws.com/logo/logo-shorthand-vertical-negative.png" style="width:100px;height:130px;"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!--Overview-->
+
+    <div class="bg-primary" style="height:70px;">
+        <h2 style="margin-left:550px;">User Management Function</h2>
+    </div>
+    <div id="account_overview_interface" class="bg-info">
+        <div>
+            <h2 style="margin-left: 630px;" class=" fs-3 ">Overview</h2>
+        </div>
+        <table class="table table-info table-striped-columns table-hover" id="account_registration_table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">UOW MAIL</th>
+                    <th scope="col">UOW ID</th>
+                    <th scope="col">Status</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="rjhl947@uowmail.edu.au">
+                    <th scope="row">Ray Lim Jing Han</th>
+                    <td>rjhl947@uowmail.edu.au</td>
+                    <td>7672780</td>
+                    <td>Active</td>
+
+                </tr>
+                <tr id="tns983@uowmail.edu.au">
+                    <th scope="row">Thet Naung Soe</th>
+                    <td>tns983@uowmail.edu.au</td>
+                    <td>7673528</td>
+                    <td>Active</td>
+
+                </tr>
+
+                <tr id="yct608@uowmail.edu.au">
+                    <th scope="row">Tan Yan Chong</th>
+                    <td>yct608@uowmail.edu.au</td>
+                    <td>8246385</td>
+                    <td>Deactivated</td>
+                </tr>
+
+                <tr id="yz147@uowmail.edu.au">
+                    <th scope="row">Zou Yunfan</th>
+                    <td>yz147@uowmail.edu.au</td>
+                    <td>8246683</td>
+                    <td>Active</td>
+                </tr>
+
+                <tr id="dy617@uowmail.edu.au">
+                    <th scope="row">Yu Ding Lin</th>
+                    <td>dy617@uowmail.edu.au</td>
+                    <td>8222782</td>
+                    <td>Deactivated</td>
+                </tr>
+                <tr id="tchew@uow.edu.au">
+                    <th scope="row">Terrace</th>
+                    <td>tchew@uow.edu.au</td>
+                    <td>123890</td>
+                    <td>Active</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+
+    <div style="width:700px;margin-left: 400px;">
+        <!--account creation form-->
+        <div style="width: 500px;" id="account_create_form_div" class="bigbox ">
+            <span onclick="document.getElementById('account_create_form_div').style.display='none'" class="close" title="Close Modal">
+                X
+            </span>
+            <div>
+                <h2 class=" fs-3 " style="margin-left: 110px;">Account Creation Form</h2>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">Name</span>
+                    <input type="text" id="account_creation_name" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">UOW MAIL</span>
+                    <input type="text" id="account_creation_uowmail" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">UOW ID</span>
+                    <input type="text" id="account_creation_uowid" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">Password</span>
+                    <input type="password" id="account_creation_password" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">Confirm Password</span>
+                    <input type="password" id="account_creation_password" class="form-control">
+                </div>
+
+
+            </form>
+            <div class="input-group">
+                <input type="button" class="btn btn-outline-secondary" value="Create" style="width: 700px;" id="account_creation" onclick="account_registration()">
+            </div>
+
+
+        </div>
+
+        <!--Account Management Form-->
+        <div style="width: 500px;" id="account_management_form_div" class="bigbox ">
+            <span onclick="document.getElementById('account_management_form_div').style.display='none'" class="close" title="Close Modal">
+                X
+            </span>
+            <div>
+                <h2 class=" fs-3 " style="margin-left:100px;">Account Management Form</h2>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">Name</span>
+                    <input type="text" id="modi_name" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">UOW MAIL</span>
+                    <input type="text" id="modi_mail" class="form-control">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">UOW ID</span>
+                    <input type="text" id="modi_id" class="form-control">
+                </div>
+            </form>
+
+            <div class="input-group">
+
+                <input type="button" class="btn btn-outline-secondary" value="Activate the account" style="width: 700px;" onclick="activation_account()">
+                <input type="button" class="btn btn-outline-secondary" value="Delete the account" style="width: 700px;" onclick="delete_account()">
+                <input type="button" class="btn btn-outline-secondary" value="Deactivate the account" style="width: 700px;" onclick="deactivate_account()">
+            </div>
+
+        </div>
+        <!--Account History Checker form-->
+        <div style="width: 500px;" id="account_checker_form_div" class="bigbox ">
+            <span onclick="document.getElementById('account_checker_form_div').style.display='none'" class="close" title="Close Modal">
+                X
+            </span>
+            <div>
+                <h2 class=" fs-4 " style="margin-left:100px;">Check the activity history</h2>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">Insert UOW Mail</span>
+                    <input type="text" id="insert_mail_to_check_history" class="form-control">
+                </div>
+                <table class="table table-primary table-striped-columns table-hover" id="account_history_table">
+                    <thead>
+                        <tr>
+                            <th scope="col">UOW MAIL</th>
+                            <th scope="col">Last Login</th>
+                            <th scope="col">Last Logout</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="height: 30px;">
+                            <td id="uowmail_view_check"></td>
+                            <td id="uowmail_last_login"></td>
+                            <td id="uowmail_last_logout"></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </form>
+
+            <div class="input-group">
+
+                <input type="button" class="btn btn-outline-secondary" value="View the activity history" style="width: 700px;" onclick="account_login_history_checker()">
+
+            </div>
+
+            <div class="input-group">
+
+                <input type="button" class="btn btn-outline-secondary" value="Clear" style="width: 700px;" onclick="clear_history_checker()">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-primary" style="height:70px;">
+        <h2 style="margin-left:550px;">System Administration Function</h2>
+    </div>
+
+    <div id="account_overview_interface" class="bg-info">
+        <div>
+            <h2 style="margin-left: 630px;" class=" fs-3 ">Overview</h2>
+        </div>
+        <table class="table table-info table-striped-columns table-hover" id="system_administration_table">
+            <thead>
+                <tr>
+                    <th scope="col">Room ID</th>
+                    <th scope="col">Launched By</th>
+                    <th scope="col">Occupied By</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Approval Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="1Arow">
+                    <th>1A</th>
+                    <td>Staff Alpha</td>
+                    <td>David</td>
+                    <td>Occupied</td>
+                    <td id="1Astatus">Approved</td>
+                </tr>
+                <tr id="3Drow">
+                    <th>3D</th>
+                    <td>Staff Alpha</td>
+                    <td>_</td>
+                    <td id="3Davi">Available</td>
+                    <td id="3Dstatus">Approved</td>
+                </tr>
+                <tr id="3Grow">
+                    <th>3G</th>
+                    <td>Staff Beta</td>
+                    <td>_</td>
+                    <td id="3Gavi">Available</td>
+                    <td id="3Gstatus">Approved</td>
+                </tr>
+                <tr id="5Rrow">
+                    <th>5R</th>
+                    <td>Staff Gamma</td>
+                    <td>_</td>
+                    <td id="5Ravi">Available</td>
+                    <td id="5Rstatus">Approved</td>
+                </tr>
+                <tr id="4Drow">
+                    <th>4D</th>
+                    <td>Staff Teta</td>
+                    <td>_</td>
+                    <td id="4Davi">Unavailable</td>
+                    <td id="4Dstatus">Pending Approval</td>
+                </tr>
+                <tr id="7Trow">
+                    <th>7T</th>
+                    <td>Staff Teta</td>
+                    <td>_</td>
+                    <td id="7Tavi">Unavailable</td>
+                    <td id="7Tstatus">Pending Approval</td>
+                </tr>
+                <tr id="9Zrow">
+                    <th>9Z</th>
+                    <td>Staff Teta</td>
+                    <td>_</td>
+                    <td id="9Zavi">Unavailable</td>
+                    <td id="9Zstatus">Pending Approval</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+
+    <div style="width:700px;margin-left: 400px;">
+
+        <div style="width: 500px;" id="system_administration_form_div" class="bigbox ">
+            <span onclick="document.getElementById('system_administration_form_div').style.display='none'" class="close" title="Close Modal">
+                <p
+                    class="fs-2 fw-bolder bg-danger"
+                    style="margin-left:450px;"
+                >&times;</p>
+            </span>
+            <div>
+                <h2 class=" fs-4 " style="margin-left:100px;">Administration Form</h2>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">Insert Room ID</span>
+                    <input type="text" id="insert_room_ID_to_approve_or_reject" class="form-control">
+                </div>
+            </form>
+
+            <div class="input-group">
+
+                <input type="button" class="btn btn-outline-secondary" value="Approve" style="width: 700px;" onclick="room_approve_from_admin()">
+
+            </div>
+
+            <div class="input-group">
+
+                <input type="button" class="btn btn-outline-secondary" value="Decline" style="width: 700px;" onclick="room_decline_from_admin()">
+
+            </div>
+            <div style="height:50px" class="bg-primary"></div>
+
+            <div>
+                <h2 class=" fs-5 " style="height:70px;margin-left: 40px;">View the room usage by selected data range</h2>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">From</span>
+                    <input type="date" id="data_range_from" class="form-control">
+
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-text" style="width: 200px;">To</span>
+                    <input type="date" id="data_range_to" class="form-control">
+
+                </div>
+            </form>
+
+            <div class="input-group">
+
+                <input type="button" class="btn btn-outline-secondary" value="Search" style="width: 700px;" onclick="search_room_by_date()">
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <button class="btn btn-secondary m-3 mb-5">
+        <a
+            href="../Bookbrosuser_login.html"
+            class="text-decoration-none text-muted"
+        >
+            Log out
+        </a>
+    </button>
+
+
+
+
+
+
+
+
+</body>
+<script>
+    function account_registration() {
+
+        var register_name = document.getElementById("account_creation_name").value;
+
+        var register_uowmail = document.getElementById("account_creation_uowmail").value;
+        var register_uowid = document.getElementById("account_creation_uowid").value;
+
+
+        var registration_table = document.getElementById("account_registration_table");
+
+        var row = registration_table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+
+
+
+        cell1.innerHTML = register_name;
+        cell2.innerHTML = register_uowmail;
+        cell3.innerHTML = register_uowid;
+        cell4.innerHTML = "Active";
+
+
+    }
+
+    function activation_account() {
+        var confirm_name = document.getElementById("modi_name").value;
+
+
+
+        var table = document.getElementById("account_registration_table");
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var cell = row.cells[0];
+            if (cell.innerHTML.toLowerCase() === confirm_name.toLowerCase()) {
+
+                var new_modi_name = document.getElementById("modi_name").value;
+                var new_modi_mail = document.getElementById("modi_mail").value;
+                var new_modi_id = document.getElementById("modi_id").value;
+
+                row.cells[0].innerHTML = new_modi_name;
+                row.cells[1].innerHTML = new_modi_mail;
+                row.cells[2].innerHTML = new_modi_id;
+                row.cells[3].innerHTML = "Active";
+
+
+
+                break;
+            }
+        }
+
+
+    }
+
+
+    function removeAccount(rowId) {
+        var table = document.getElementById("account_registration_table");
+        var row = document.getElementById(rowId);
+        table.deleteRow(row.rowIndex);
+    }
+
+    function delete_account() {
+
+        var delete_account_id = document.getElementById("modi_mail").value;
+        var table = document.getElementById("account_registration_table");
+
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var cell = row.cells[1];
+
+
+            if (cell.innerHTML.toLowerCase() === delete_account_id.toLowerCase()) {
+
+                removeAccount(delete_account_id)
+
+                break;
+            }
+        }
+
+    }
+
+
+
+
+    function deactivate_account() {
+        var confirm_name = document.getElementById("modi_name").value;
+
+
+
+        var table = document.getElementById("account_registration_table");
+        for (var i = 0; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var cell = row.cells[0];
+            if (cell.innerHTML.toLowerCase() === confirm_name.toLowerCase()) {
+
+                var new_modi_name = document.getElementById("modi_name").value;
+                var new_modi_mail = document.getElementById("modi_mail").value;
+                var new_modi_id = document.getElementById("modi_id").value;
+
+                row.cells[0].innerHTML = new_modi_name;
+                row.cells[1].innerHTML = new_modi_mail;
+                row.cells[2].innerHTML = new_modi_id;
+                row.cells[3].innerHTML = "Deactivated";
+
+
+
+                break;
+            }
+        }
+
+
+    }
+
+
+    function room_approve_from_admin() {
+
+        var get_id_to_approve_js = document.getElementById("insert_room_ID_to_approve_or_reject").value;
+        var real_change_approved = get_id_to_approve_js + "status";
+        var real_avi_available = get_id_to_approve_js + "avi"
+        document.getElementById(real_change_approved).innerHTML = "Approved";
+        document.getElementById(real_avi_available).innerHTML = "Available";
+
+    }
+
+    function room_decline_from_admin() {
+        var get_id_to_decline_js = document.getElementById("insert_room_ID_to_approve_or_reject").value;
+        var real_change_declined = get_id_to_decline_js + "status";
+        var real_avi_unavailable = get_id_to_decline_js + "avi";
+        document.getElementById(real_change_declined).innerHTML = "Declined";
+        document.getElementById(real_avi_unavailable).innerHTML = "Unavailable";
+    }
+
+
+
+    var form_create_account_js = document.getElementById("account_create_form_div");
+    var button_account_create_js = document.getElementById("show_account_creation_page");
+
+    button_account_create_js.addEventListener("click", function() {
+        if (form_create_account_js.style.display === "none") {
+            form_create_account_js.style.display = "block";
+        } else {
+            form_create_account_js.style.display = "none";
+        }
+    });
+
+    var form_manage_account_js = document.getElementById("account_management_form_div");
+    var button_account_create_js = document.getElementById("show__account_managing_page");
+
+    button_account_create_js.addEventListener("click", function() {
+        if (form_manage_account_js.style.display === "none") {
+            form_manage_account_js.style.display = "block";
+        } else {
+            form_manage_account_js.style.display = "none";
+        }
+    });
+
+    var form_account_check_js = document.getElementById("account_checker_form_div");
+    var button_account_check_js = document.getElementById("show_view_history_page");
+
+    button_account_check_js.addEventListener("click", function() {
+        if (form_account_check_js.style.display === "none") {
+            form_account_check_js.style.display = "block";
+        } else {
+            form_account_check_js.style.display = "none";
+        }
+    });
+
+    var system_check_js = document.getElementById("system_administration_form_div");
+    var button_system_check_js = document.getElementById("show_system_administration_page");
+
+    button_system_check_js.addEventListener("click", function() {
+        if (system_check_js.style.display === "none") {
+            system_check_js.style.display = "block";
+        } else {
+            system_check_js.style.display = "none";
+        }
+    });
+
+    function clear_history_checker() {
+
+        var uow_mail_for_check_show = document.getElementById("uowmail_view_check");
+        var uow_mail_login_check_show = document.getElementById("uowmail_last_login");
+        var uow_mail_logout_check_show = document.getElementById("uowmail_last_logout");
+
+        uow_mail_for_check_show.innerHTML = " ";
+        uow_mail_login_check_show.innerHTML = " ";
+        uow_mail_logout_check_show.innerHTML = " ";
+
+    }
+
+    function account_login_history_checker() {
+
+        var uow_mail_for_check = document.getElementById("insert_mail_to_check_history").value;
+        var uow_mail_for_check_show = document.getElementById("uowmail_view_check");
+        var uow_mail_login_check_show = document.getElementById("uowmail_last_login");
+        var uow_mail_logout_check_show = document.getElementById("uowmail_last_logout");
+
+        if (uow_mail_for_check === 'rjhl947@uowmail.edu.au') {
+            uow_mail_for_check_show.innerHTML = uow_mail_for_check;
+            uow_mail_login_check_show.innerHTML = "12-5-2023/05:00 PM";
+            uow_mail_logout_check_show.innerHTML = "13-5-2023/06:30 PM";
+        }
+
+        if (uow_mail_for_check === 'tns983@uowmail.edu.au') {
+            uow_mail_for_check_show.innerHTML = uow_mail_for_check;
+            uow_mail_login_check_show.innerHTML = "13-5-2023/04:10 PM";
+            uow_mail_logout_check_show.innerHTML = "15-5-2023/07:38 PM";
+        }
+
+        if (uow_mail_for_check === 'yct608@uowmail.edu.au') {
+            uow_mail_for_check_show.innerHTML = uow_mail_for_check;
+            uow_mail_login_check_show.innerHTML = "16-5-2023/01:00 PM";
+            uow_mail_logout_check_show.innerHTML = "18-5-2023/09:30 PM";
+        }
+
+        if (uow_mail_for_check === 'yz147@uowmail.edu.au') {
+            uow_mail_for_check_show.innerHTML = uow_mail_for_check;
+            uow_mail_login_check_show.innerHTML = "2-5-2023/08:00 PM";
+            uow_mail_logout_check_show.innerHTML = "3-5-2023/09:30 PM";
+        }
+
+        if (uow_mail_for_check === 'dy617@uowmail.edu.au') {
+            uow_mail_for_check_show.innerHTML = uow_mail_for_check;
+            uow_mail_login_check_show.innerHTML = "5-5-2023/02:00 PM";
+            uow_mail_logout_check_show.innerHTML = "6-5-2023/08:30 PM";
+        }
+
+        if (uow_mail_for_check === 'tchew@uow.edu.au') {
+            uow_mail_for_check_show.innerHTML = uow_mail_for_check;
+            uow_mail_login_check_show.innerHTML = "21-5-2023/05:00 PM";
+            uow_mail_logout_check_show.innerHTML = "21-5-2023/06:30 PM";
+        }
+    }
+</script>
+
+
+</html>

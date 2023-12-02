@@ -1,0 +1,43 @@
+body {
+    display: block;
+    padding-top: 60px;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.text-primary {
+    color: #0F2F61 !important;
+}
+
+.bg-primary {
+    background-color: #0F2F61 !important;
+    color: #fff;
+}
+
+.d-flex {
+
+    width: 100%;
+}
+
+.marginauto {
+    margin: 0 auto;
+}
+
+.bigbox {
+    height: auto;
+}
+
+.bigbox .input-group {
+    margin: 5px 0;
+}
+
+.input-group button {
+    margin: 5px 0;
+}
